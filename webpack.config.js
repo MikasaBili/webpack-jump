@@ -5,10 +5,12 @@ const dist = path.resolve(__dirname, './disc');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
-    app: src+"/app.js"
+    app: src+"/app.js",
+    inx1: src+'/nuomi/index1.js',
+    inx2: src+'/nuomi/index2.js'
   },
   output: {
-    filename: 'bundle.js',
+    filename: "[name].bundle.js",
     path: dist+"/assets"
   },
   loader: {
@@ -41,25 +43,31 @@ module.exports = {
     },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-  //   new HtmlWebpackPlugin({
-  //   template: './view/nuomi/index1.html',
-  //   inject: 'body',
-  //   hash: true,
-  //   minify: {
-  //       collapseWhitespace: true
-  //   }
-  //   }),
-  //   new HtmlWebpackPlugin({
-  //   template: './view/nuomi/index2.html',
-  //   inject: 'body',
-  //   hash: true,
-  //   minify: {
-  //       collapseWhitespace: true
-  //   }
-  // }),
+      new HtmlWebpackPlugin({
+      template: './view/nuomi/index1.html',
+      filename: './view/nuomi/demo1.html',
+      inject: 'body',
+      chunks: ['inx1'],
+      hash: true,
+      minify: {
+          collapseWhitespace: true
+      }
+      }),
+      new HtmlWebpackPlugin({
+      template: './view/nuomi/index2.html',
+      filename: './view/nuomi/demo2.html',
+      inject: 'body',
+      chunks: ['inx2'],
+      hash: true,
+      minify: {
+          collapseWhitespace: true
+      }
+    }),
     new HtmlWebpackPlugin({
     template: './index.html',
+    filename: 'index.html',
     inject: 'body',
+    chunks: ['app'],
     hash: true,
     minify: {
         collapseWhitespace: true
