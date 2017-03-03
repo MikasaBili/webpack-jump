@@ -29,17 +29,17 @@ window.onload = () => {
 	const products = [{
 		name: '有趣的鼠标悬浮模糊效果',
 		img: 'https://ww3.sinaimg.cn/large/006tNbRwly1fcr5jmrmujg30cj06xqv5.gif',
-		href: 'view/nuomi/index1.html',
+		href: '/nuomi/index.html',
 		topic_site: 'http://ife.baidu.com/course/detail/id/14'
 	}, {
 		name: '动态数据绑定',
 		img: 'http://ww1.sinaimg.cn/large/005Y4a20ly1fcr9i4yyamj30b40b474b',
-		href: 'view/nuomi/index1.html',
+		href: '/nuomi/index.html',
 		topic_site: 'http://ife.baidu.com/course/detail/id/15'
 	}, {
 		name: '贪食蛇',
 		img: 'http://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/mms-res/fed/ife/ife_tutor/课程配图.3fb31f3e5af7e8d7.jpg',
-		href: 'view/nuomi/index2.html',
+		href: '/baidu/index.html',
 		topic_site: 'http://ife.baidu.com/course/detail/id/15'
 	}]
 

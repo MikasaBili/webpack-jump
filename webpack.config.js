@@ -1,17 +1,29 @@
 const path = require('path'); // 处理路径
 const webpack = require('webpack');
-const src =  path.resolve(__dirname, './src');
-const dist = path.resolve(__dirname, './disc');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const maps = require('./map.js');
+const dist = path.resolve(__dirname, './disc');
+const view = path.resolve(__dirname, './view');
+let plugin = [];
+for (let map in maps) {
+  plugin.push( new HtmlWebpackPlugin ({
+    template: view+'/'+map+'/index.html',
+    filename: map+'/index.html',
+    inject: 'body',
+    chunks: [map],
+    hash: true,
+    minify: {
+        collapseWhitespace: true
+    }
+  }))
+} 
+const hotModule = new webpack.HotModuleReplacementPlugin();
+plugin.push(hotModule);
 module.exports = {
-  entry: {
-    app: src+"/app.js",
-    inx1: src+'/nuomi/index1.js',
-    inx2: src+'/nuomi/index2.js'
-  },
+  entry: maps,
   output: {
-    filename: "[name].bundle.js",
-    path: dist+"/assets"
+    filename: "[name]/[name].js",
+    path: dist+'/'
   },
   loader: {
     rules: [
@@ -36,42 +48,11 @@ module.exports = {
     ]
   },
   devServer: {
+        contentBase: path.resolve(__dirname,'.disc')
         historyApiFallback: true,
         port: 2345,
         inline: true,
         hot: true
     },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-      new HtmlWebpackPlugin({
-      template: './view/nuomi/index1.html',
-      filename: './view/nuomi/demo1.html',
-      inject: 'body',
-      chunks: ['inx1'],
-      hash: true,
-      minify: {
-          collapseWhitespace: true
-      }
-      }),
-      new HtmlWebpackPlugin({
-      template: './view/nuomi/index2.html',
-      filename: './view/nuomi/demo2.html',
-      inject: 'body',
-      chunks: ['inx2'],
-      hash: true,
-      minify: {
-          collapseWhitespace: true
-      }
-    }),
-    new HtmlWebpackPlugin({
-    template: './index.html',
-    filename: 'index.html',
-    inject: 'body',
-    chunks: ['app'],
-    hash: true,
-    minify: {
-        collapseWhitespace: true
-    }
-  })
-  ]
+  plugins: plugin
 }
