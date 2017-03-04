@@ -240,7 +240,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 0;
+/******/ 			var chunkId = 3;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -706,99 +706,17 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(3)(__webpack_require__.s = 3);
+/******/ 	return hotCreateRequire(4)(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var map = exports.map = [{
-  name: 'radio,checkbox',
-  href: '/radio/index.html'
-}, {
-  name: '文字流光',
-  href: '/fontGradient/index.html'
-}, {
-  name: '右键',
-  href: '/rightClick/index.html'
-}];
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-// 输出模板
-var SetTemplate = function () {
-  function SetTemplate() {
-    var map = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-    var paretn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'body';
-
-    _classCallCheck(this, SetTemplate);
-
-    this.paretn = paretn;
-    this.map = map;
-    this.dom = '';
-  }
-
-  _createClass(SetTemplate, [{
-    key: 'setHtml',
-    value: function setHtml() {
-      var _this = this;
-
-      var mapArray = this.map;
-      mapArray.forEach(function (value) {
-        _this.dom += _this.getHtml(value);
-      });
-      document.querySelector(this.paretn).innerHTML = this.dom;
-    }
-  }, {
-    key: 'getHtml',
-    value: function getHtml(_obj) {
-      return '\n    <div class="card">\n      <p>\n        \u9898\u76EE\uFF1A\n        <a class="topic">' + _obj.name + '</a>\n      </p>\n      <p>\n        \u5B8C\u6210\u4F5C\u54C1\uFF1A\n        <a href="' + _obj.href + '" class="link">Demo</a>\n      </p>\n    </div>\n    ';
-    }
-  }]);
-
-  return SetTemplate;
-}();
-
-exports.default = SetTemplate;
-
-/***/ }),
-/* 2 */,
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _template = __webpack_require__(1);
-
-var _template2 = _interopRequireDefault(_template);
-
-var _map = __webpack_require__(0);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var appMain = new _template2.default(_map.map, 'body');
-appMain.setHtml();
 
 /***/ })
-/******/ ]);
+
+/******/ });

@@ -1,7 +1,9 @@
 const path = require('path')
-const src = path.resolve(__dirname,'./src')
+const src = path.resolve(__dirname, './src')
 module.exports = {
-  'app': src+'/app/main.js',
-  'baidu': src+'/baidu/main.js',
-  'nuomi': src+'/nuomi/main.js'
+  'app': src + '/app/main.js',
+  'fontGradient': src + '/fontGradient/main.js',
+  'radio': src + '/radio/main.js',
+  'rightClick': src + '/rightClick/main.js',
+  'sort': src + '/sort/main.js'
 }
