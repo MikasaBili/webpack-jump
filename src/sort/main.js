@@ -41,4 +41,5 @@ setInterval(() => {
     htmlarr[o].style.height = shift[o].val + 'px'
     htmlarr[o].style.background = shift[o].color
   }
+  console.log(1)
 }, 500)

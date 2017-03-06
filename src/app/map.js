@@ -1,3 +1,4 @@
+// 设置主页菜单
 export const map = [{
   name: 'radio,checkbox',
   href: '/radio/index.html'

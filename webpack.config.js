@@ -20,7 +20,7 @@ for (let map in maps) {
   }))
 }
 const hotModule = new webpack.HotModuleReplacementPlugin()
-const sty = new ExtractTextPlugin('style.css')
+const sty = new ExtractTextPlugin('[name]/[name].css')
 plugin.push(hotModule, autoprefixer, sty)
 module.exports = {
   entry: maps,
@@ -52,10 +52,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        query: {
-          limit: 10000
-        }
+        loader: 'url-loader?limit=8192&name=images/[name].[ext]'
       }
     ]
   },

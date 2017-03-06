@@ -1,3 +1,4 @@
+// 设置webpack.config 中的入口文件
 const path = require('path')
 const src = path.resolve(__dirname, './src')
 module.exports = {
