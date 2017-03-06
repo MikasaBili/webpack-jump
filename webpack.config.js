@@ -26,7 +26,8 @@ module.exports = {
   entry: maps,
   output: {
     filename: '[name]/[name].js',
-    path: dist + '/'
+    path: dist + '/',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -34,7 +35,13 @@ module.exports = {
         test: /\.(css|less)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader?minimize', 'less-loader']
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              importLoaders: 2
+            }
+          }, 'less-loader', 'postcss-loader']
         })
       },
       {
